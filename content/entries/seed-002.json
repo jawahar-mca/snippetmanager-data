@@ -1,0 +1,30 @@
+{
+  "id": "seed-002",
+  "title": "Debounce a function in TypeScript",
+  "topic": "Performance",
+  "tags": [
+    "debounce",
+    "performance",
+    "hooks",
+    "timer",
+    "closure"
+  ],
+  "language": "typescript",
+  "explanation": "## Problem\nPrevent a function from firing too frequently (search input, resize handler).\n\n## Approach\nClose over a timer reference. Each call clears the previous timer and schedules a new one. Only fires after `delay` ms of silence.\n\n## Complexity\n- Time: O(1) per call\n- Space: O(1)",
+  "codeBlocks": [
+    {
+      "id": "cb-002a",
+      "language": "typescript",
+      "caption": "Generic debounce utility",
+      "code": "function debounce<T extends (...args: unknown[]) => void>(\n  fn: T,\n  delay: number\n): (...args: Parameters<T>) => void {\n  let timer: ReturnType<typeof setTimeout>\n\n  return (...args: Parameters<T>) => {\n    clearTimeout(timer)\n    timer = setTimeout(() => fn(...args), delay)\n  }\n}"
+    },
+    {
+      "id": "cb-002b",
+      "language": "react",
+      "caption": "useDebounce React hook",
+      "code": "import { useState, useEffect } from 'react'\n\nfunction useDebounce<T>(value: T, delay: number): T {\n  const [debounced, setDebounced] = useState<T>(value)\n\n  useEffect(() => {\n    const timer = setTimeout(() => setDebounced(value), delay)\n    return () => clearTimeout(timer)\n  }, [value, delay])\n\n  return debounced\n}\n\n// Usage\nconst debouncedQuery = useDebounce(query, 300)"
+    }
+  ],
+  "createdAt": "2026-03-09T21:07:24.492Z",
+  "updatedAt": "2026-03-09T21:07:24.492Z"
+}
