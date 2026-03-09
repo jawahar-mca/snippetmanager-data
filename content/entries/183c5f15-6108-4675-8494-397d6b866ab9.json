@@ -1,0 +1,18 @@
+{
+  "id": "183c5f15-6108-4675-8494-397d6b866ab9",
+  "title": "Two Sum",
+  "topic": "Two Sum",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "",
+  "codeBlocks": [
+    {
+      "id": "375b10a7-5c48-42e1-aef9-15d9cffd2f31",
+      "language": "javascript",
+      "code": "const arr = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]\n\nconst target = 15, results =[]\n\nfunction twoSum(arr, target){\n  \n  const seen = new Map();\n  \n  for (let i=0; i< arr.length;i++){\n    \n    const need = target - arr[i];\n    \n    if(seen.has(need)){\n      \n      results.push([seen.get(need), i])\n    }\n\nseen.set(arr[i],i)    \n    \n  }\n  \n  return results.length? results : null\n  \n  \n  \n}\n\nconsole.log(twoSum(arr, target))\n",
+      "caption": ""
+    }
+  ],
+  "createdAt": "2026-03-09T23:21:51.748Z",
+  "updatedAt": "2026-03-09T23:21:51.748Z"
+}
