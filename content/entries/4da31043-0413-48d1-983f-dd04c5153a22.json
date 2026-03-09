@@ -1,0 +1,21 @@
+{
+  "id": "4da31043-0413-48d1-983f-dd04c5153a22",
+  "title": "find the duplicate chars in the given string",
+  "topic": "find string duplicate",
+  "tags": [
+    "duplicate",
+    "string"
+  ],
+  "language": "typescript",
+  "explanation": "",
+  "codeBlocks": [
+    {
+      "id": "52d76b86-9376-4e3a-9d82-d29269c20a58",
+      "language": "javascript",
+      "code": "// Write your solution here\nfunction duplicate(str){\n    const obj = {};\n\n    for(let i of str){\n        obj[i] = (obj[i] || 0) + 1\n    }\n    return Object.entries(obj).filter(([,x])=> x >1).map(([c, cnt]) =>({c,cnt}))\n}",
+      "caption": ""
+    }
+  ],
+  "createdAt": "2026-03-09T21:08:29.513Z",
+  "updatedAt": "2026-03-09T21:08:29.513Z"
+}
