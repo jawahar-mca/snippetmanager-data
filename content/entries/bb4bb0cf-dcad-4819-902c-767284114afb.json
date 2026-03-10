@@ -4,7 +4,7 @@
   "topic": "smallest number",
   "tags": [
     "Array",
-    "array operations"
+    "array operation"
   ],
   "language": "javascript",
   "explanation": "",
@@ -17,5 +17,5 @@
     }
   ],
   "createdAt": "2026-03-10T03:17:11.115Z",
-  "updatedAt": "2026-03-10T03:17:56.038Z"
+  "updatedAt": "2026-03-10T03:18:09.314Z"
 }
