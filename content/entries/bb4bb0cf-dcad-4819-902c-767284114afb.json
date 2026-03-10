@@ -2,7 +2,10 @@
   "id": "bb4bb0cf-dcad-4819-902c-767284114afb",
   "title": "smallest number in a given array",
   "topic": "smallest number",
-  "tags": [],
+  "tags": [
+    "Array",
+    "array operations"
+  ],
   "language": "javascript",
   "explanation": "",
   "codeBlocks": [
@@ -14,5 +17,5 @@
     }
   ],
   "createdAt": "2026-03-10T03:17:11.115Z",
-  "updatedAt": "2026-03-10T03:17:11.115Z"
+  "updatedAt": "2026-03-10T03:17:56.038Z"
 }
