@@ -1,0 +1,27 @@
+{
+  "id": "8d51e5a3-ab8c-4cc1-bcac-e17a93538147",
+  "title": "ReactJS - reverse counter",
+  "topic": "Reverse of counter with timer",
+  "tags": [
+    "reactjs",
+    "counter in reverse"
+  ],
+  "language": "react",
+  "explanation": "",
+  "codeBlocks": [
+    {
+      "id": "864dba42-b0b1-4fd8-9105-5f1df580fbc5",
+      "language": "react",
+      "code": "import React, { useState, useEffect, useRef } from 'react';\n\nfunction App() {\n  const [count, setCount] = useState(300);\n  const [flag, setFlag] = useState(false);\n  const timerRef = useRef(null);  // Persist timer across renders\n\n  const styles = {\n    main: { padding: '20px' },\n    title: { color: '#5C6AC4' },\n  };\n\n  useEffect(() => {\n    if (flag) {\n      timerRef.current = setInterval(() => {\n        setCount((prev) => {\n          if (prev <= 1) {     // Stop at 0 or 1\n            clearInterval(timerRef.current);\n            setFlag(false);\n            return 0;          // Or 1\n          }\n          return prev - 1;\n        });\n      }, 1000);\n    } else if (timerRef.current) {\n      clearInterval(timerRef.current);\n      timerRef.current = null;\n    }\n\n    return () => {  // Cleanup\n      if (timerRef.current) {\n        clearInterval(timerRef.current);\n      }\n    };\n  }, [flag]);  // Re-run only on flag change\n\n  return (\n    <div style={styles.main}>\n      <h1 style={styles.title}>{count}</h1>\n      <div>\n        <button onClick={() => setFlag(true)}>Start</button>\n        <button onClick={() => {\n          setCount(300);\n          setFlag(false);\n        }}>Reset</button>\n        <button onClick={() => setFlag(false)}>Stop</button>\n      </div>\n    </div>\n  );\n}\n\nexport default App;\n",
+      "caption": "with useRef"
+    },
+    {
+      "id": "01c2ef53-540a-4ffc-a456-f757d264cf14",
+      "language": "react",
+      "code": "import React, { useState, useEffect } from 'react';\n\nfunction App() {\n  const [count, setCount] = useState(300);\n  const [flag, setFlag] = useState(false);\n  \n  const styles = {\n    main: { padding: '20px' },\n    title: { color: '#5C6AC4' },\n  };\n\n  useEffect(() => {\n    let timer;  // Local variable - works because cleanup captures it\n    \n    if (flag) {\n      timer = setInterval(() => {\n        setCount((prev) => {\n          if (prev < 1) {\n            clearInterval(timer);\n            setFlag(false);\n            return 0;\n          }\n          return prev - 1;\n        });\n      }, 1000);\n    }\n    \n    return () => {  // Runs before re-run or unmount\n      if (timer) clearInterval(timer);\n    };\n  }, [flag]);  // Only on flag change\n\n  return (\n    <div style={styles.main}>\n      <h1 style={styles.title}>{count}</h1>\n      <div>\n        <button onClick={() => setFlag(true)}>start</button>\n        <button onClick={() => setCount(300)}>Reset</button>\n        <button onClick={() => setFlag(false)}>stop</button>\n      </div>\n    </div>\n  );\n}\n\nexport default App;\n",
+      "caption": "without useref"
+    }
+  ],
+  "createdAt": "2026-03-10T03:30:26.192Z",
+  "updatedAt": "2026-03-10T03:30:26.192Z"
+}
