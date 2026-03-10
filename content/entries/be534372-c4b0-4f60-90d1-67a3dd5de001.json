@@ -1,0 +1,20 @@
+{
+  "id": "be534372-c4b0-4f60-90d1-67a3dd5de001",
+  "title": "Find the largest number in a given array",
+  "topic": "largest number",
+  "tags": [
+    "array operation"
+  ],
+  "language": "javascript",
+  "explanation": "",
+  "codeBlocks": [
+    {
+      "id": "fd5b944c-571a-49cd-a04b-ba3ea737d3ff",
+      "language": "javascript",
+      "code": "function largest(arr){\n    let largest = arr[0];\n    for (let i=1; i <arr.length; i++){\n        if(arr[i]> largest){\n            largest = arr[i];\n        }\n    }\n    return largest;\n}\nconst arr = [2, 4, 43, 1, 3, 5, 6, 8, 9];\nconsole.log(largest(arr))",
+      "caption": ""
+    }
+  ],
+  "createdAt": "2026-03-10T03:15:57.018Z",
+  "updatedAt": "2026-03-10T03:15:57.018Z"
+}
