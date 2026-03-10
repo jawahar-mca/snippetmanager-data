@@ -20,8 +20,14 @@
       "language": "react",
       "code": "import React, { useState, useEffect } from 'react';\n\nfunction App() {\n  const [count, setCount] = useState(300);\n  const [flag, setFlag] = useState(false);\n  \n  const styles = {\n    main: { padding: '20px' },\n    title: { color: '#5C6AC4' },\n  };\n\n  useEffect(() => {\n    let timer;  // Local variable - works because cleanup captures it\n    \n    if (flag) {\n      timer = setInterval(() => {\n        setCount((prev) => {\n          if (prev < 1) {\n            clearInterval(timer);\n            setFlag(false);\n            return 0;\n          }\n          return prev - 1;\n        });\n      }, 1000);\n    }\n    \n    return () => {  // Runs before re-run or unmount\n      if (timer) clearInterval(timer);\n    };\n  }, [flag]);  // Only on flag change\n\n  return (\n    <div style={styles.main}>\n      <h1 style={styles.title}>{count}</h1>\n      <div>\n        <button onClick={() => setFlag(true)}>start</button>\n        <button onClick={() => setCount(300)}>Reset</button>\n        <button onClick={() => setFlag(false)}>stop</button>\n      </div>\n    </div>\n  );\n}\n\nexport default App;\n",
       "caption": "without useref"
+    },
+    {
+      "id": "c332bd7b-4bb5-45a4-8803-e6950d26c305",
+      "language": "react",
+      "code": "import React, { useState, useEffect } from \"react\";\n\nfunction Timer() {\n  const [timeRemaining, setTimeRemaining] = useState(300);\n  const [start, setStart] = useState(false);\n\n  useEffect(() => {\n    if (!start) return;\n\n    const timer = setInterval(() => {\n      setTimeRemaining((prev) => {\n        if (prev <= 1) {\n          clearInterval(timer);\n          return 0;\n        }\n        return prev - 1;\n      });\n    }, 1000);\n\n    return () => clearInterval(timer); // CLEANUP\n  }, [start]);\n\n  return (\n    <div>\n      <p>Timer: {timeRemaining}</p>\n      <button onClick={() => setStart(true)}>Start</button>\n      <button onClick={() => setStart(false)}>Stop</button>\n      <button onClick={() => setTimeRemaining(300)}>Reset</button>\n    </div>\n  );\n}\n\nexport default Timer;",
+      "caption": "Prod safe"
     }
   ],
   "createdAt": "2026-03-10T03:30:26.192Z",
-  "updatedAt": "2026-03-10T03:30:26.192Z"
+  "updatedAt": "2026-03-10T03:32:26.563Z"
 }
