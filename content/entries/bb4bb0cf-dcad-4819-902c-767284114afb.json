@@ -1,0 +1,18 @@
+{
+  "id": "bb4bb0cf-dcad-4819-902c-767284114afb",
+  "title": "smallest number in a given array",
+  "topic": "smallest number",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "",
+  "codeBlocks": [
+    {
+      "id": "c632079f-f7e1-489d-80b9-233cefc983b7",
+      "language": "javascript",
+      "code": "function smallest(arr) {\n  let small = arr[0];\n  for (let i = 1; i < arr.length; i++) {\n    if (arr[i] < small) {      // use < to find minimum\n      small = arr[i];\n    }\n  }\n  return small;                // return after the loop\n}\n\nconst arr = [2, 4, 43, 1, 3, 5, 6, 8, 9];\nconsole.log(smallest(arr));    // 1",
+      "caption": ""
+    }
+  ],
+  "createdAt": "2026-03-10T03:17:11.115Z",
+  "updatedAt": "2026-03-10T03:17:11.115Z"
+}
