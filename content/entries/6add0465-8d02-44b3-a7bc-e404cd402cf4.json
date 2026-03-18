@@ -1,0 +1,56 @@
+{
+  "id": "6add0465-8d02-44b3-a7bc-e404cd402cf4",
+  "title": "Mac - folder access to write",
+  "topic": "MAC",
+  "tags": [
+    "MAC folder access"
+  ],
+  "language": "bash",
+  "explanation": "Mac commands to use on a regular basis.\n\nsudo chmod -R 777 /Users/jawahar/Learning\n\n## create a zip file with password\n\nzip -e newfile.zip originalfile.zip\n\nCreating multiple folders easily \n\nmkdir -p components/features/{header,drawer,stockList,favorites} components/{hooks,context,services,styles,utils,types,assets}\n\n```bash\nmkdir -p components/features/{header,drawer,stockList,favorites} components/{hooks,context,services,styles,utils,types,assets}\n\n```\n\nThis creates a **nested folder structure** in one shot using the `mkdir` command with some clever shell tricks.\n\n---\n\n### 🔍 Breakdown of Each Part\n\n### ✅ `mkdir`\n\nThis is the basic command to **make directories**.\n\n### ✅ `p`\n\nThis flag means:\n\n- **Create parent folders as needed**\n- **Don’t throw errors if folders already exist**\n\nSo if `components/` doesn’t exist yet, it’ll be created automatically.\n\n### ✅ `components/features/{header,drawer,stockList,favorites}`\n\nThis uses **brace expansion**, a shell feature that expands into multiple paths:\n\n```bash\ncomponents/features/header\ncomponents/features/drawer\ncomponents/features/stockList\ncomponents/features/favorites\n\n```\n\nBrace expansion saves you from writing each path manually.\n\n### ✅ `components/{hooks,context,services,styles,utils,types,assets}`\n\nSame trick here. It expands into:\n\n```bash\ncomponents/hooks\ncomponents/context\ncomponents/services\ncomponents/styles\ncomponents/utils\ncomponents/types\ncomponents/assets\n\n```\n\n---\n\n### 🧪 Try It Yourself\n\nYou can test this in any terminal on macOS or Linux. Just run the command from your project root.\n\nWant to create files inside each folder too? You can chain commands like:\n\n```bash\ntouch components/hooks/index.ts\n\n```\n\nOr use a loop:\n\n```bash\nfor dir in components/{hooks,context,services}; do touch $dir/index.ts; done\n\n```\n\n---\n\n### 🧰 When to Use This\n\n- 🔧 Setting up a new React or Vue project\n- 🧪 Creating test folders\n- 📁 Organizing backend services\n- 🛠️ Automating project scaffolding\n\n---\n\n## Creating a shell file in mac and running the commands - like a batch file in windows\n\nCreate a new shell script file, e.g., setup.sh:\n\n```\nnano setup.sh\n```\n\nAdd the following script inside the file:\n\n```\n#!/bin/bash\n\nmkdir shared-deps && cd shared-deps\nnpm init -y\nnpm i react@18.2.0 react-dom@18.2.0 typescript webpack@5 webpack-cli@5 -S\nnpm i @types/react @types/react-dom -D\n```\n\nSave the file (CTRL + X, then Y, then Enter).\n\n**Make the Script Executable**\n\nRun the following command to grant execution permissions:\n\n```\nchmod +x setup.sh\n```\n\n**Execute the Script**\n\nRun it with:\n\n```\n./setup.sh\n```\n\nTo allow complete operations (read, write, delete, etc.) for the **Learning** folder and its contents, the correct permission command is:\n\n```bash\nsudo chmod -R 777 /Users/jawahar/Learning\n\n```\n\n**Explanation**:\n\n- `777` gives **full permissions** (read, write, execute) to the owner, group, and others.\n- `R` applies it recursively to all files and subfolders.\n- Replace `YourUsername` with your actual username (e.g., `sudo chmod -R 777 /Users/John/Learning`).\n\n**Note**: Use `777` cautiously, as it allows *everyone* full access. If you want to restrict access to just yourself, use `700` instead:\n\n```bash\nsudo chmod -R 700 /Users/YourUsername/Learning\n\n```\n\nRun the command in Terminal, enter your password, and test creating/editing files in VS Code.\n\nSetting docker path in mac\n\nexport PATH=\"/Applications/Docker.app/Contents/Resources/bin:$PATH\"",
+  "codeBlocks": [
+    {
+      "id": "6c9f1627-4d04-42e8-81ba-6a249f791cf7",
+      "language": "bash",
+      "code": "sudo chmod -R 777 /Users/jawahar/Learning",
+      "caption": ""
+    },
+    {
+      "id": "bdec58ee-9475-4a53-bc1d-f28d8c63b388",
+      "language": "bash",
+      "code": "## create a zip file with password\n\nzip -e newfile.zip originalfile.zip",
+      "caption": ""
+    },
+    {
+      "id": "d69dd69f-2888-4111-8004-b6130916ced8",
+      "language": "bash",
+      "code": "# Creating multiple folders easily \n\nmkdir -p components/features/{header,drawer,stockList,favorites} components/{hooks,context,services,styles,utils,types,assets}\n\n\n```bash\nmkdir -p components/features/{header,drawer,stockList,favorites} components/{hooks,context,services,styles,utils,types,assets}\n\n```\n\n# This creates a nested folder structure in one shot using the mkdir command with some clever shell tricks.",
+      "caption": ""
+    },
+    {
+      "id": "50efd193-6332-4c54-8db9-a41852d1f7e9",
+      "language": "bash",
+      "code": "### 🔍 Breakdown of Each Part\n\n### ✅ `mkdir`\n\nThis is the basic command to **make directories**.\n\n### ✅ `p`\n\nThis flag means:\n\n- **Create parent folders as needed**\n- **Don’t throw errors if folders already exist**\n\nSo if `components/` doesn’t exist yet, it’ll be created automatically.\n\n### ✅ `components/features/{header,drawer,stockList,favorites}`\n\nThis uses **brace expansion**, a shell feature that expands into multiple paths:\n\n```bash\ncomponents/features/header\ncomponents/features/drawer\ncomponents/features/stockList\ncomponents/features/favorites\n\n```\n\nBrace expansion saves you from writing each path manually.\n\n### ✅ `components/{hooks,context,services,styles,utils,types,assets}`\n\nSame trick here. It expands into:\n\n```bash\ncomponents/hooks\ncomponents/context\ncomponents/services\ncomponents/styles\ncomponents/utils\ncomponents/types\ncomponents/assets\n\n```",
+      "caption": ""
+    },
+    {
+      "id": "bbd631a0-bda5-45af-b2d7-559a489f237f",
+      "language": "bash",
+      "code": "### 🧪 Try It Yourself\n\nYou can test this in any terminal on macOS or Linux. Just run the command from your project root.\n\nWant to create files inside each folder too? You can chain commands like:\n\n```bash\ntouch components/hooks/index.ts\n\n```\n\nOr use a loop:\n\n```bash\nfor dir in components/{hooks,context,services}; do touch $dir/index.ts; done\n\n```",
+      "caption": ""
+    },
+    {
+      "id": "0d0c44c5-d6a0-4226-b456-34e557c0c087",
+      "language": "bash",
+      "code": "### 🧰 When to Use This\n\n- 🔧 Setting up a new React or Vue project\n- 🧪 Creating test folders\n- 📁 Organizing backend services\n- 🛠️ Automating project scaffolding\n\n---\n\n## Creating a shell file in mac and running the commands - like a batch file in windows\n\nCreate a new shell script file, e.g., setup.sh:\n\n```\nnano setup.sh\n```\n\nAdd the following script inside the file:\n\n```\n#!/bin/bash\n\nmkdir shared-deps && cd shared-deps\nnpm init -y\nnpm i react@18.2.0 react-dom@18.2.0 typescript webpack@5 webpack-cli@5 -S\nnpm i @types/react @types/react-dom -D\n```\n\nSave the file (CTRL + X, then Y, then Enter).\n\n**Make the Script Executable**\n\nRun the following command to grant execution permissions:\n\n```\nchmod +x setup.sh\n```\n\n**Execute the Script**\n\nRun it with:\n\n```\n./setup.sh\n```\n\nTo allow complete operations (read, write, delete, etc.) for the **Learning** folder and its contents, the correct permission command is:\n\n```bash\nsudo chmod -R 777 /Users/jawahar/Learning\n\n```\n\n**Explanation**:\n\n- `777` gives **full permissions** (read, write, execute) to the owner, group, and others.\n- `R` applies it recursively to all files and subfolders.\n- Replace `YourUsername` with your actual username (e.g., `sudo chmod -R 777 /Users/John/Learning`).\n\n**Note**: Use `777` cautiously, as it allows *everyone* full access. If you want to restrict access to just yourself, use `700` instead:\n\n```bash\nsudo chmod -R 700 /Users/YourUsername/Learning\n\n```",
+      "caption": ""
+    },
+    {
+      "id": "3dd724bb-9de7-4e90-be0e-ade8f5565cef",
+      "language": "bash",
+      "code": "Setting docker path in mac\n\nexport PATH=\"/Applications/Docker.app/Contents/Resources/bin:$PATH\"",
+      "caption": ""
+    }
+  ],
+  "createdAt": "2026-03-18T17:09:22.371Z",
+  "updatedAt": "2026-03-18T17:09:22.371Z"
+}
