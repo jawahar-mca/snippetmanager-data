@@ -1,0 +1,62 @@
+{
+  "id": "e1d8166f-b4d8-4e7e-9230-cdbbab9a911d",
+  "title": "React Architecture",
+  "topic": "HOC, RenderProps, hooks, Redux Tookkit (RTK), context API",
+  "tags": [
+    "HOC",
+    "RenderProps",
+    "hooks",
+    "Redux Tookkit (RTK)",
+    "context API",
+    "Zustand",
+    "MFE"
+  ],
+  "language": "react",
+  "explanation": "ReactJS architectures refer to patterns for organizing code, managing state, and composing UIs. Here's a list of key ones with short code examples. \n\nSources\n[1] React micro-frontend with module federation and Redux https://stackoverflow.com/questions/74192469/react-micro-frontend-with-module-federation-and-redux\n[2] Headless content management system - Wikipedia https://en.wikipedia.org/wiki/Headless_content_management_system\n[3] Micro frontends and module federation with ReactJS ... - YouTube https://www.youtube.com/watch?v=RuiuYN4JGNg\n[4] Micro-Frontends in React: Patterns, Benefits & Setup - CodingCops https://codingcops.com/micro-frontends-in-react/\n[5] Rethinking React Architecture at Scale: From Hooks to Remote ... https://dev.to/shantih_palani/rethinking-react-architecture-at-scale-from-hooks-to-remote-contexts-3a8j\n[6] Build a micro-frontend application with React - LogRocket Blog https://blog.logrocket.com/build-micro-frontend-application-react/\n[7] Building React Microfrontends with Webpack Module Federation by ... https://www.youtube.com/watch?v=OeZbiaS09Q0\n[8] React micro front end architecture pattern : r/reactjs - Reddit https://www.reddit.com/r/reactjs/comments/1cnnxix/react_micro_front_end_architecture_pattern/",
+  "codeBlocks": [
+    {
+      "id": "1e78da89-899a-4343-ae4e-488018a47fac",
+      "language": "react",
+      "code": "//## Micro Frontends (Module Federation)\n\n//Independent teams build/deploy parts, loaded dynamically.\n\n```jsx\n// webpack.config.js remote\nnew ModuleFederationPlugin({\n  exposes: { \"./Button\": \"./src/Button\" }\n});\n// host\nconst RemoteButton = React.lazy(() => import(\"remote/Button\"));\n```",
+      "caption": ""
+    },
+    {
+      "id": "ab4e8d81-1a7c-45cd-8a94-a92ec3e37197",
+      "language": "react",
+      "code": "//## Zustand/Jotai\n\n//Lightweight state (alternatives to Redux).\n\n// Zustand\nconst useStore = create((set) => ({\n  count: 0, inc: () => set((state) => ({ count: state.count + 1 }))\n}));\nfunction Comp() { const { count, inc } = useStore(); return <button onClick={inc}>{count}</button>; }\n",
+      "caption": ""
+    },
+    {
+      "id": "f367ab98-0456-4c5a-adfe-c53a7ed5b70d",
+      "language": "react",
+      "code": "//## Redux/RTK\n\n//Centralized store for complex apps.\n\nconst counterSlice = createSlice({\n  name: 'counter', initialState: { value: 0 },\n  reducers: { increment: state => { state.value += 1; } }\n});\nconst store = configureStore({ reducer: counterSlice.reducer });\n<Provider store={store}><App /></Provider>\n",
+      "caption": ""
+    },
+    {
+      "id": "fe96788e-aa55-431a-b077-9621d97815bc",
+      "language": "react",
+      "code": "// ## Context API\n\n// Global state without prop drilling.\n\nconst ThemeContext = createContext();\n<ThemeContext.Provider value={{ dark: true }}>\n  <Child />\n</ThemeContext.Provider>\n// Child: const theme = useContext(ThemeContext);\n",
+      "caption": ""
+    },
+    {
+      "id": "f481eb4a-9589-461c-b8d1-90379d70549b",
+      "language": "react",
+      "code": "// ## Hooks (useState/useEffect)\n\n// Functional state/logic without classes or HOCs.\n\n\nfunction MyComponent() {\n  const [count, setCount] = useState(0);\n  useEffect(() => { /* fetch data */ }, []);\n  return <button onClick={() => setCount(c => c+1)}>{count}</button>;\n}",
+      "caption": ""
+    },
+    {
+      "id": "aeadc6de-05e5-46ae-af08-b83a33f3104d",
+      "language": "react",
+      "code": "//## Render Props\n\n//Shares code via a prop that renders content, avoiding HOC wrapper hell.\n\n<DataProvider render={({ data }) => <MyComponent data={data} />} />\n",
+      "caption": ""
+    },
+    {
+      "id": "925bae3b-7100-40fe-84a1-9fb8e0110aac",
+      "language": "react",
+      "code": "// ## Higher-Order Components (HOC)\n\n// Wraps a component to reuse logic like data fetching or auth.[1]\n\nconst withAuth = (WrappedComponent) => {\n  return (props) => (\n    <AuthProvider>\n      <WrappedComponent {...props} />\n    </AuthProvider>\n  );\n};\nconst AuthApp = withAuth(MyComponent);\n",
+      "caption": ""
+    }
+  ],
+  "createdAt": "2026-03-18T17:01:55.786Z",
+  "updatedAt": "2026-03-18T17:01:55.786Z"
+}
