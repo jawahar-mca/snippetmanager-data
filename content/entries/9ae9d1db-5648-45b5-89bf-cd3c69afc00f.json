@@ -1,0 +1,24 @@
+{
+  "id": "9ae9d1db-5648-45b5-89bf-cd3c69afc00f",
+  "title": "Check Armstrong Number",
+  "topic": "check-armstrong-number",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "**Purpose**: 153 = 1³ + 5³ + 3³.\n\n### Approach 1: Math.pow (Best)",
+  "codeBlocks": [
+    {
+      "id": "a5de7c5f-625c-4f3e-96f4-dcb6ad713992",
+      "language": "javascript",
+      "code": "function isArmstrong(num) {\n  const n = Math.abs(num);\n  const digits = String(n).length;\n  let sum = 0;\n  let temp = n;\n  while (temp > 0) {\n    const digit = temp % 10;\n    sum += Math.pow(digit, digits);\n    temp = Math.floor(temp / 10);\n  }\n  return sum === n;\n}",
+      "caption": "Approach 1 Math.pow (Best)"
+    },
+    {
+      "id": "d6f31be3-4591-4f4b-bfb2-bb7426451b2f",
+      "language": "javascript",
+      "code": "function isArmstrongReduce(num) {\n  const n = Math.abs(num);\n  const digits = String(n).length;\n  return String(n).split('').reduce((sum, d) =>\n    sum + Math.pow(+d, digits), 0) === n;\n}",
+      "caption": "Approach 2 reduce"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
