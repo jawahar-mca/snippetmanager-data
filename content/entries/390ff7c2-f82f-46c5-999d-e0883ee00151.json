@@ -1,7 +1,7 @@
 {
   "id": "390ff7c2-f82f-46c5-999d-e0883ee00151",
   "title": "Check for Anagram",
-  "topic": "check-for-anagram",
+  "topic": "anagram",
   "tags": [
     "sort",
     "string",
@@ -30,5 +30,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:29:20.413Z"
 }
