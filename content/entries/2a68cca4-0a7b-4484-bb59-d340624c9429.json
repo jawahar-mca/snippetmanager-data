@@ -1,0 +1,26 @@
+{
+  "id": "2a68cca4-0a7b-4484-bb59-d340624c9429",
+  "title": "Generate Random Using Hash Map",
+  "topic": "generate-random-using-hash-map",
+  "tags": [
+    "crypto"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Weighted random from hash map.\n\n### Approach 1: Cumulative Weights (Best)",
+  "codeBlocks": [
+    {
+      "id": "d0371879-a160-4d48-9c78-11403b55060a",
+      "language": "javascript",
+      "code": "// Weighted random selection\nfunction weightedRandom(weights) {\n  const total = Object.values(weights).reduce((a, b) => a + b, 0);\n  const rand = Math.random() * total;\n  let sum = 0;\n  for (const [item, weight] of Object.entries(weights)) {\n    sum += weight;\n    if (rand <= sum) return item;\n  }\n}",
+      "caption": "Approach 1 Cumulative Weights (Best)"
+    },
+    {
+      "id": "1c2ad913-0a12-4585-ba58-effcc7d50087",
+      "language": "javascript",
+      "code": "function hashMapRandom(map) {\n  const items = Object.keys(map);\n  const weights = Object.values(map);\n  const total = weights.reduce((a, b) => a + b, 0);\n  const rand = crypto.getRandomValues(new Uint32Array(1))[0] % total;\n  // Binary search for position...\n}",
+      "caption": "Approach 2 Array Sampling"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
