@@ -1,0 +1,30 @@
+{
+  "id": "ffa7a4b3-fce1-4329-9fb6-2be2e926d256",
+  "title": "Reverse a Number",
+  "topic": "reverse-a-number",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "**Purpose**: 12345 → 54321.\n\n### Approach 1: Math Loop (Best)",
+  "codeBlocks": [
+    {
+      "id": "7d0a7766-76ed-4ff4-bfba-2c0dc59e2d73",
+      "language": "javascript",
+      "code": "function reverseNum(num) {\n  let reversed = 0, n = Math.abs(num);\n  while (n > 0) {\n    reversed = reversed * 10 + n % 10;\n    n = Math.floor(n / 10);\n  }\n  return num < 0 ? -reversed : reversed;\n}",
+      "caption": "Approach 1 Math Loop (Best)"
+    },
+    {
+      "id": "eff42e34-2d23-4b12-98d2-d29531fa2ff3",
+      "language": "javascript",
+      "code": "function reverseNumStr(num) {\n  return parseInt(String(Math.abs(num)).split('').reverse().join('')) * Math.sign(num);\n}",
+      "caption": "Approach 2 String (Simple)"
+    },
+    {
+      "id": "8df7783e-31c6-428a-a7dc-7cac475091be",
+      "language": "javascript",
+      "code": "function reverseNumRecursive(num, rev = 0) {\n  if (Math.abs(num) < 10) return num * Math.sign(num) + rev * 10;\n  return reverseNumRecursive(\n    Math.floor(Math.abs(num) / 10),\n    rev * 10 + num % 10\n  );\n}",
+      "caption": "Approach 3 Recursion"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
