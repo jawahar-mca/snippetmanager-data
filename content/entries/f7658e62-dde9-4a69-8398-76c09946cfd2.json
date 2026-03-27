@@ -1,0 +1,32 @@
+{
+  "id": "f7658e62-dde9-4a69-8398-76c09946cfd2",
+  "title": "Remove Duplicates from Array",
+  "topic": "remove-duplicates-from-array",
+  "tags": [
+    "array"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Unique elements.\n\n### Approach 1: Set (Best)",
+  "codeBlocks": [
+    {
+      "id": "bd78dff4-1284-4cea-a00f-52e416ea416d",
+      "language": "javascript",
+      "code": "function removeDuplicates(arr) {\n  return [...new Set(arr)];\n}",
+      "caption": "Approach 1 Set (Best)"
+    },
+    {
+      "id": "fefa10eb-ca74-4a6f-99ab-83c50864a16a",
+      "language": "javascript",
+      "code": "function removeDuplicatesFilter(arr) {\n  return arr.filter((item, index) => arr.indexOf(item) === index);\n}",
+      "caption": "Approach 2 filter + indexOf"
+    },
+    {
+      "id": "34d33e44-664a-47bc-b402-adbbcec9acac",
+      "language": "javascript",
+      "code": "function removeDuplicatesTyped(arr) {\n  const sorted = new Int32Array(arr).sort();\n  const result = [];\n  for (let i = 0; i < sorted.length; ) {\n    result.push(sorted[i]);\n    const val = sorted[i++];\n    while (i < sorted.length && sorted[i] === val) i++;\n  }\n  return Array.from(result);\n}",
+      "caption": "Approach 3 TypedArray Sort (Fastest)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
