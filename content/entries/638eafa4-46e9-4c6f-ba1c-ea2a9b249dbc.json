@@ -1,7 +1,7 @@
 {
   "id": "638eafa4-46e9-4c6f-ba1c-ea2a9b249dbc",
   "title": "Merge Two Arrays",
-  "topic": "merge-two-arrays",
+  "topic": "arrays",
   "tags": [
     "sort",
     "array"
@@ -29,5 +29,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:29:51.544Z"
 }
