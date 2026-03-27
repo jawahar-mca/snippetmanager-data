@@ -1,0 +1,30 @@
+{
+  "id": "da83f0e9-dfd2-4fd4-a320-6026b7953e9d",
+  "title": "Factorial of a Number",
+  "topic": "factorial-of-a-number",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "### Best: Iterative (avoids recursion limits)",
+  "codeBlocks": [
+    {
+      "id": "c2581753-167f-4201-a34a-768db927539c",
+      "language": "javascript",
+      "code": "function factorial(n) {\n  if (n < 0) throw new Error('Negative not allowed');\n  let result = 1;\n  for (let i = 2; i <= n; i++) result *= i;\n  return result;\n}",
+      "caption": "Best Iterative (avoids recursion limits)"
+    },
+    {
+      "id": "1957cae6-202d-4a96-b87c-3aaf15499cd3",
+      "language": "javascript",
+      "code": "function factorialBigInt(n) {\n  if (n < 0) throw new Error('Negative not allowed');\n  let result = 1n;\n  for (let i = 2n; i <= BigInt(n); i++) result *= i;\n  return result;\n}",
+      "caption": "BigInt version (for large n)"
+    },
+    {
+      "id": "d4a90f53-41ca-43d7-95fd-c342766285cd",
+      "language": "javascript",
+      "code": "function factorialRecursive(n) {\n  if (n < 0) throw new Error('Negative not allowed');\n  return n <= 1 ? 1 : n * factorialRecursive(n - 1);\n}",
+      "caption": "Recursive version (simple, but stack-limited)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
