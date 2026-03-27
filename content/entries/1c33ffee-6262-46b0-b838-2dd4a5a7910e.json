@@ -1,0 +1,26 @@
+{
+  "id": "1c33ffee-6262-46b0-b838-2dd4a5a7910e",
+  "title": "Check Palindrome (string or number)",
+  "topic": "check-palindrome-string-or-number",
+  "tags": [
+    "string"
+  ],
+  "language": "javascript",
+  "explanation": "### Best: String two-pointer",
+  "codeBlocks": [
+    {
+      "id": "94d176eb-5204-414d-b3df-8a3ca5ea1a47",
+      "language": "javascript",
+      "code": "function isPalindrome(str) {\n  const s = String(str);\n  let left = 0, right = s.length - 1;\n  while (left < right) {\n    if (s[left] !== s[right]) return false;\n    left++; right--;\n  }\n  return true;\n}",
+      "caption": "Best String two-pointer"
+    },
+    {
+      "id": "7e9b9527-88d2-4c53-b6c6-2f7b045f54c2",
+      "language": "javascript",
+      "code": "function isPalindromeClean(str) {\n  const s = str.toLowerCase().replace(/[^a-z0-9]/g, '');\n  let i = 0, j = s.length - 1;\n  while (i < j) {\n    if (s[i] !== s[j]) return false;\n    i++; j--;\n  }\n  return true;\n}",
+      "caption": "Case-insensitive, ignore non-alphanumerics"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
