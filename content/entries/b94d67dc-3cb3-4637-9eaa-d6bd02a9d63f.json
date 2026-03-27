@@ -1,0 +1,33 @@
+{
+  "id": "b94d67dc-3cb3-4637-9eaa-d6bd02a9d63f",
+  "title": "Generate Random Numbers",
+  "topic": "generate-random-numbers",
+  "tags": [
+    "graph",
+    "crypto"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Secure/pseudo-random numbers.\n\n### Approach 1: Web Crypto (Cryptographically Secure - Best)",
+  "codeBlocks": [
+    {
+      "id": "f185fcb9-23fa-439a-90d9-20c531bf4c5a",
+      "language": "javascript",
+      "code": "// ES2022+ crypto.getRandomValues\nfunction randomSecure(min, max) {\n  const array = new Uint32Array(1);\n  crypto.getRandomValues(array);\n  return min + (array[0] % (max - min + 1));\n}\n\n// Array of 10 randoms\nfunction randomArrayCrypto(count) {\n  return Array.from({ length: count }, () =>\n    crypto.getRandomValues(new Uint32Array(1))[0] % 1000\n  );\n}",
+      "caption": "Approach 1 Web Crypto (Cryptographically Secure - Best)"
+    },
+    {
+      "id": "c33b4f2c-5c4c-4e16-a43c-4e3e12b4ae7f",
+      "language": "javascript",
+      "code": "function randomMath(min, max) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}",
+      "caption": "Approach 2 Math.random (Fast but Predictable)"
+    },
+    {
+      "id": "db57078b-4662-4403-870d-a2a465e0238b",
+      "language": "javascript",
+      "code": "// Mulberry32 PRNG (deterministic)\nfunction seededRandom(seed) {\n  return function() {\n    let t = seed += 0x6D2B79F5;\n    t = Math.imul(t ^ t >>> 15, t | 1);\n    t ^= t + Math.imul(t ^ t >>> 7, t | 61);\n    return ((t ^ t >>> 14) >>> 0) / 4294967296;\n  };\n}",
+      "caption": "Approach 3 Seeded PRNG (Reproducible)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
