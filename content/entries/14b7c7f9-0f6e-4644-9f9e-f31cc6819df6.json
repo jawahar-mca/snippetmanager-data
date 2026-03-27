@@ -1,0 +1,24 @@
+{
+  "id": "14b7c7f9-0f6e-4644-9f9e-f31cc6819df6",
+  "title": "Print Prime Numbers in Range",
+  "topic": "print-prime-numbers-in-range",
+  "tags": [],
+  "language": "typescript",
+  "explanation": "**Purpose**: Primes between start-end.\n\n### Approach 1: Sieve of Eratosthenes (Best)",
+  "codeBlocks": [
+    {
+      "id": "b2c27385-8c35-4d5f-97f9-26b0a7d73104",
+      "language": "typescript",
+      "code": "function primesSieve(start, end) {\n  if (end < 2) return [];\n  const sieve = new Uint8Array(end + 1).fill(1);\n  sieve[0] = sieve[1] = 0;\n  for (let i = 2; i * i <= end; i++) {\n    if (sieve[i]) {\n      for (let j = i * i; j <= end; j += i) sieve[j] = 0;\n    }\n  }\n  return Array.from({ length: end - start + 1 }, (_, i) =>\n    sieve[start + i] ? start + i : null\n  ).filter(Boolean);\n}",
+      "caption": "Approach 1 Sieve of Eratosthenes (Best)"
+    },
+    {
+      "id": "3a6c6c78-5f46-480c-a5e2-2356ba4f4a8b",
+      "language": "javascript",
+      "code": "function primesTrial(start, end) {\n  const primes = [];\n  for (let num = Math.max(2, start); num <= end; num++) {\n    let isPrime = true;\n    for (let i = 2; i * i <= num; i++) {\n      if (num % i === 0) { isPrime = false; break; }\n    }\n    if (isPrime) primes.push(num);\n  }\n  return primes;\n}",
+      "caption": "Approach 2 Trial Division"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
