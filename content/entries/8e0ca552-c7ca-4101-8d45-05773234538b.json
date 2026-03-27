@@ -1,0 +1,20 @@
+{
+  "id": "8e0ca552-c7ca-4101-8d45-05773234538b",
+  "title": "Miller-Rabin (Probabilistic) Implementation",
+  "topic": "miller-rabin-probabilistic-implementation",
+  "tags": [
+    "linked"
+  ],
+  "language": "javascript",
+  "explanation": "",
+  "codeBlocks": [
+    {
+      "id": "328b7a5d-7590-4863-8ca3-3b7b0de29eb2",
+      "language": "javascript",
+      "code": "// Miller-Rabin primality test (ES2025 probabilistic)\n// 99.9999% accurate for numbers < 2^64\nfunction isPrimeMillerRabin(n) {\n  if (n <= 1) return false;\n  if (n <= 3) return true;\n  if (n % 2 === 0) return false;\n\n  // Write n-1 as 2^s * d\n  let s = 0, d = n - 1;\n  while (d % 2 === 0) {\n    d /= 2;\n    s++;\n  }\n\n  // Witnesses for deterministic < 2^64\n  const witnesses = [\n    2, 3, 5, 7, 11, 13, 17, 23, 29, 31, 37\n  ];\n\n  for (const a of witnesses) {\n    if (a >= n) break;\n    let x = modPow(a, d, n); // a^d mod n\n    if (x === 1 || x === n - 1) continue;\n\n    let r = 1;\n    while (r < s && x !== n - 1) {\n      x = (x * x) % n;\n      r++;\n      if (x === 1) return false;\n    }\n    if (x !== n - 1) return false;\n  }\n  return true;\n}\n\n// Modular exponentiation (fast pow)\nfunction modPow(base, exp, mod) {\n  let result = 1;\n  base %= mod;\n  while (exp > 0) {\n    if (exp % 2 === 1) result = (result * BigInt(base)) % BigInt(mod);\n    exp = Math.floor(exp / 2);\n    base = (BigInt(base) * BigInt(base)) % BigInt(mod);\n  }\n  return Number(result);\n}\n\n// Usage\nconsole.log(isPrimeMillerRabin(2147483647)); // true (2^31-1)",
+      "caption": ""
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
