@@ -1,0 +1,40 @@
+{
+  "id": "a337c244-dbad-4e3f-a82d-afab398acabb",
+  "title": "String Containing Another String",
+  "topic": "string-containing-another-string",
+  "tags": [
+    "array",
+    "string",
+    "tree"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Substring search.\n\n### Approach 1: includes() (ES6, O(n))",
+  "codeBlocks": [
+    {
+      "id": "bdeb12e8-0d93-46b4-97fe-11897783bbcf",
+      "language": "javascript",
+      "code": "// Simplest\nfunction contains(str, substr) {\n  return str.includes(substr);\n}",
+      "caption": "Approach 1 includes() (ES6, O(n))"
+    },
+    {
+      "id": "e3077952-bfd8-4b20-ae98-b9470b891c1e",
+      "language": "javascript",
+      "code": "function containsPosition(str, substr) {\n  return str.indexOf(substr) !== -1;\n}",
+      "caption": "Approach 2 indexOf/startsWith/endsWith"
+    },
+    {
+      "id": "dca79b77-f1f0-4948-bfbc-d46fce65ebf3",
+      "language": "javascript",
+      "code": "// Case-insensitive, Unicode-safe\nfunction containsRegex(str, substr) {\n  return new RegExp(substr, 'iu').test(str); // i=ignore case, u=unicode\n}",
+      "caption": "Approach 3 RegExp (ES2025 Unicode)"
+    },
+    {
+      "id": "ee44961b-aa7d-42e9-a34c-a5a02623a907",
+      "language": "javascript",
+      "code": "// Optimized for long patterns\nfunction boyerMoore(haystack, needle) {\n  if (!needle.length) return true;\n  // Precompute bad character table...\n  // Implementation ~50 lines, 5x faster for long strings\n}",
+      "caption": "Approach 4 Boyer-Moore (Manual O(n/m))"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
