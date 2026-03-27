@@ -1,0 +1,34 @@
+{
+  "id": "390ff7c2-f82f-46c5-999d-e0883ee00151",
+  "title": "Check for Anagram",
+  "topic": "check-for-anagram",
+  "tags": [
+    "sort",
+    "string",
+    "linked"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: \"listen\" vs \"silent\".\n\n### Approach 1: Sort + Compare (Best)",
+  "codeBlocks": [
+    {
+      "id": "9ab4ba35-cdb0-4099-a560-ffaacc1f5c33",
+      "language": "javascript",
+      "code": "function isAnagram(s1, s2) {\n  return s1.length === s2.length && [...s1].sort().join('') === [...s2].sort().join('');\n}",
+      "caption": "Approach 1 Sort + Compare (Best)"
+    },
+    {
+      "id": "317aa4b4-142f-4d91-9c40-a2c4013863d4",
+      "language": "javascript",
+      "code": "function isAnagramMap(s1, s2) {\n  if (s1.length !== s2.length) return false;\n  const freq = new Map();\n  for (let i = 0; i < s1.length; i++) {\n    freq.set(s1[i], (freq.get(s1[i]) || 0) + 1);\n    freq.set(s2[i], (freq.get(s2[i]) || 0) - 1);\n  }\n  return Array.from(freq.values()).every(count => count === 0);\n}",
+      "caption": "Approach 2 Char Frequency Map"
+    },
+    {
+      "id": "82ed74e5-6f34-40f7-b8ab-91c31fd3d8c3",
+      "language": "javascript",
+      "code": "function isAnagramTyped(s1, s2) {\n  if (s1.length !== s2.length) return false;\n  const count1 = new Int16Array(128), count2 = new Int16Array(128);\n  for (let i = 0; i < s1.length; i++) {\n    count1[s1.charCodeAt(i)]++;\n    count2[s2.charCodeAt(i)]++;\n  }\n  return count1.every((v, i) => v === count2[i]);\n}",
+      "caption": "Approach 3 TypedArray (Fastest)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
