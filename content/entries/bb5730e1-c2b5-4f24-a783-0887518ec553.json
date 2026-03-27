@@ -1,0 +1,32 @@
+{
+  "id": "bb5730e1-c2b5-4f24-a783-0887518ec553",
+  "title": "Length of String",
+  "topic": "length-of-string",
+  "tags": [
+    "string"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Get string length.\n\n### Approach 1: length (Native - Best)",
+  "codeBlocks": [
+    {
+      "id": "4401a6b3-7f25-43d4-9bc3-06d09f784b87",
+      "language": "javascript",
+      "code": "function strLength(str) {\n  return str.length;\n}",
+      "caption": "Approach 1 length (Native - Best)"
+    },
+    {
+      "id": "897842ce-b7f3-44fe-bcde-16abe164775e",
+      "language": "javascript",
+      "code": "function strLengthSpread(str) {\n  return [...str].length;\n}",
+      "caption": "Approach 2 Spread operator"
+    },
+    {
+      "id": "6918a2d8-9822-4a3c-9470-3ab0fb76054b",
+      "language": "javascript",
+      "code": "function strLengthUnicode(str) {\n  return new TextEncoder().encode(str).length;\n}",
+      "caption": "Approach 3 TypedArray (Unicode Safe)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
