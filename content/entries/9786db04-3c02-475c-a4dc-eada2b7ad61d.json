@@ -1,0 +1,32 @@
+{
+  "id": "9786db04-3c02-475c-a4dc-eada2b7ad61d",
+  "title": "Count Occurrences of Character",
+  "topic": "count-occurrences-of-character",
+  "tags": [
+    "string"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Frequency of specific char.\n\n### Approach 1: matchAll (ES2020 - Best)",
+  "codeBlocks": [
+    {
+      "id": "bd834c1c-8e14-4274-acf4-b6f3fa85e86f",
+      "language": "javascript",
+      "code": "function countChar(str, char) {\n  return str.matchAll(new RegExp(char, 'g')).length || 0;\n}",
+      "caption": "Approach 1 matchAll (ES2020 - Best)"
+    },
+    {
+      "id": "660d9b21-2f40-44e8-9aee-2a3629c9fe37",
+      "language": "javascript",
+      "code": "function countCharSplit(str, char) {\n  return (str.split(char).length - 1);\n}",
+      "caption": "Approach 2 split.length (Simple)"
+    },
+    {
+      "id": "8fe70aaf-551d-486b-bdae-4e8fab7da14f",
+      "language": "javascript",
+      "code": "function countCharTyped(str, char) {\n  const code = char.charCodeAt(0);\n  const counts = new Uint32Array(1);\n  for (const c of str) {\n    if (c.charCodeAt(0) === code) counts[0]++;\n  }\n  return counts[0];\n}",
+      "caption": "Approach 3 TypedArray Loop (Fastest)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
