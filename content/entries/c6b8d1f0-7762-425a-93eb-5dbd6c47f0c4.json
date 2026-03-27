@@ -1,7 +1,7 @@
 {
   "id": "c6b8d1f0-7762-425a-93eb-5dbd6c47f0c4",
   "title": "Reverse a String",
-  "topic": "reverse-a-string",
+  "topic": "string",
   "tags": [
     "string"
   ],
@@ -22,5 +22,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:32:10.449Z"
 }
