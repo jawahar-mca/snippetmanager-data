@@ -1,0 +1,26 @@
+{
+  "id": "f91f3025-52af-4b1d-97f6-2ddf1f682912",
+  "title": "Check Perfect Number",
+  "topic": "check-perfect-number",
+  "tags": [
+    "array"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Sum of proper divisors = number (6, 28, 496...).\n\n### Approach 1: Optimized Loop (Best)",
+  "codeBlocks": [
+    {
+      "id": "7beac693-2e20-46fe-97a5-0dd2d95d0f7f",
+      "language": "javascript",
+      "code": "function isPerfect(n) {\n  if (n <= 1) return false;\n  let sum = 1; // 1 is always divisor\n  for (let i = 2; i * i <= n; i++) {\n    if (n % i === 0) {\n      sum += i;\n      if (i !== n / i) sum += n / i;\n    }\n  }\n  return sum === n;\n}",
+      "caption": "Approach 1 Optimized Loop (Best)"
+    },
+    {
+      "id": "fda23400-7cb9-49c5-a5a4-f49608440497",
+      "language": "javascript",
+      "code": "function isPerfectFilter(n) {\n  return Array.from({ length: Math.floor(Math.sqrt(n)) }, (_, i) => i + 2)\n    .filter(i => n % i === 0)\n    .reduce((sum, i) => sum + i + (i !== n/i ? n/i : 0), 1) === n;\n}",
+      "caption": "Approach 2 Array Filter"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
