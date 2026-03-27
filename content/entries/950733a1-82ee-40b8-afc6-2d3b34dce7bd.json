@@ -1,0 +1,30 @@
+{
+  "id": "950733a1-82ee-40b8-afc6-2d3b34dce7bd",
+  "title": "Factorial Using Recursion",
+  "topic": "factorial-using-recursion",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "**Purpose**: n! = n × (n-1)!\n\n### Approach 1: Tail Recursion (ES2025 Optimized)",
+  "codeBlocks": [
+    {
+      "id": "6fb6e950-3090-461a-a724-5dcdafda65d7",
+      "language": "javascript",
+      "code": "// Tail call optimized\nfunction factorialTail(n, acc = 1) {\n  if (n <= 1) return acc;\n  return factorialTail(n - 1, n * acc);\n}",
+      "caption": "Approach 1 Tail Recursion (ES2025 Optimized)"
+    },
+    {
+      "id": "335de6d3-90e0-4e23-976b-4928d8f6bbf8",
+      "language": "javascript",
+      "code": "function factorialClassic(n) {\n  return n <= 1 ? 1 : n * factorialClassic(n - 1);\n}",
+      "caption": "Approach 2 Classic Recursion"
+    },
+    {
+      "id": "6c2daa6f-b6ad-48f1-a253-421db027e78f",
+      "language": "javascript",
+      "code": "function factorialBigInt(n) {\n  if (n <= 1n) return 1n;\n  return BigInt(n) * factorialBigInt(BigInt(n - 1));\n}",
+      "caption": "Approach 3 BigInt (Handles Large Numbers)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
