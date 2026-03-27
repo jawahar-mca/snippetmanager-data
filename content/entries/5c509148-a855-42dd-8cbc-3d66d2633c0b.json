@@ -1,0 +1,32 @@
+{
+  "id": "5c509148-a855-42dd-8cbc-3d66d2633c0b",
+  "title": "Simple Login System",
+  "topic": "simple-login-system",
+  "tags": [
+    "crypto"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Username/password validation.\n\n### Approach 1: Map Storage (ES6)",
+  "codeBlocks": [
+    {
+      "id": "a3da32d3-2af3-407b-afd1-22e20a3e3be6",
+      "language": "javascript",
+      "code": "// In-memory users\nconst users = new Map();\nusers.set('admin', { password: 'hashed123', role: 'admin' });\n\nfunction login(username, password) {\n  const user = users.get(username);\n  if (!user || !verifyPassword(password, user.password))\n    throw new Error('Invalid credentials');\n  return { token: generateToken(user), user };\n}\n\n// Password verification (crypto.subtle)\nasync function verifyPassword(input, hash) {\n  const encoder = new TextEncoder();\n  const key = await crypto.subtle.importKey('pbkdf2', encoder.encode('salt'),\n    { name: 'PBKDF2' }, false, ['deriveBits']);\n  const derived = await crypto.subtle.deriveBits({ name: 'PBKDF2', salt: encoder.encode('salt'), iterations: 100000, hash: 'SHA-256' }, key, 256 * 8);\n  return hash === Array.from(new Uint8Array(derived)).map(b => b.toString(16).padStart(2,'0')).join('');\n}",
+      "caption": "Approach 1 Map Storage (ES6)"
+    },
+    {
+      "id": "c567f42b-48ec-4761-8db1-c29fcdbf8d28",
+      "language": "javascript",
+      "code": "class LoginManager {\n  #users = new WeakMap();\n\n  addUser(username, password) {\n    this.#users.set(username, hashPassword(password));\n  }\n\n  async login(username, password) {\n    const stored = this.#users.get(username);\n    return stored && await verifyPassword(password, stored);\n  }\n}",
+      "caption": "Approach 2 WeakMap + Private Fields (ES2022)"
+    },
+    {
+      "id": "deae384f-6e01-40ee-9aa5-3af3cfeca679",
+      "language": "javascript",
+      "code": "// Persisted, secure\nclass SecureLogin {\n  async #initDB() { /* IndexedDB setup */ }\n  async login(username, password) {\n    const hash = await hashPassword(password);\n    const stored = await this.#getUser(username);\n    return stored?.hash === hash;\n  }\n}",
+      "caption": "Approach 3 Web Crypto API + IndexedDB (Production)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
