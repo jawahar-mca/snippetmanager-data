@@ -1,0 +1,32 @@
+{
+  "id": "03dc1902-2996-4d29-b363-972cf8146da1",
+  "title": "Find Missing Number in Array",
+  "topic": "find-missing-number-in-array",
+  "tags": [
+    "array"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Find missing number in 1...N sequence.\n\n### Approach 1: XOR (Best, O(n))",
+  "codeBlocks": [
+    {
+      "id": "de4904b6-2322-428c-ace3-288acfad862e",
+      "language": "javascript",
+      "code": "// Genius XOR trick - no extra space\nfunction missingNumberXOR(arr, n) {\n  let missing = n * (n + 1) / 2;\n  let xor = 0;\n  for (let i = 1; i <= n; i++) xor ^= i;\n  for (const num of arr) xor ^= num;\n  return xor;\n}",
+      "caption": "Approach 1 XOR (Best, O(n))"
+    },
+    {
+      "id": "3c4fc2cc-5891-4a64-bf3e-c7c50a56e6f9",
+      "language": "javascript",
+      "code": "function missingNumberSum(arr, n) {\n  const expected = n * (n + 1) / 2;\n  return expected - arr.reduce((sum, num) => sum + num, 0);\n}",
+      "caption": "Approach 2 Sum Formula (O(n))"
+    },
+    {
+      "id": "b4e7bcd4-48b8-4543-9e5b-5049cfda1664",
+      "language": "javascript",
+      "code": "function missingNumberSet(arr, n) {\n  const set = new Set(arr);\n  for (let i = 1; i <= n; i++) {\n    if (!set.has(i)) return i;\n  }\n}",
+      "caption": "Approach 3 Set (Simple)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
