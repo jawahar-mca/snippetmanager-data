@@ -1,0 +1,30 @@
+{
+  "id": "4b59c24f-0ebe-4dcd-b64f-dfa5cdcb49d3",
+  "title": "Swap Two Numbers",
+  "topic": "swap-two-numbers",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "**Purpose**: Exchange values without temp variable.\n\n### Approach 1: Destructuring (ES6 - Best)",
+  "codeBlocks": [
+    {
+      "id": "abee71f0-1c1f-4f45-b4f5-7af0bc7fb839",
+      "language": "javascript",
+      "code": "// Cleanest, no side effects\nfunction swap(a, b) {\n  [a, b] = [b, a];\n  return [a, b];\n}\n\n// Mutate array in place\nfunction swapArray(arr, i, j) {\n  [arr[i], arr[j]] = [arr[j], arr[i]];\n  return arr;\n}",
+      "caption": "Approach 1 Destructuring (ES6 - Best)"
+    },
+    {
+      "id": "1907ae8f-9dea-4c93-9011-417fa4243e13",
+      "language": "javascript",
+      "code": "function swapXOR(a, b) {\n  a = a ^ b;\n  b = a ^ b;\n  a = a ^ b;\n  return [a, b];\n}",
+      "caption": "Approach 2 XOR (Classic)"
+    },
+    {
+      "id": "a131ecf1-f22d-4ff1-a4c3-d28001318ac5",
+      "language": "javascript",
+      "code": "function swapMath(a, b) {\n  a = a + b;\n  b = a - b;\n  a = a - b;\n  return [a, b];\n}",
+      "caption": "Approach 3 Math (Addition/Subtraction)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
