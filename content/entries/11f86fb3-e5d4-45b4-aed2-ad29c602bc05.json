@@ -1,0 +1,32 @@
+{
+  "id": "11f86fb3-e5d4-45b4-aed2-ad29c602bc05",
+  "title": "Remove All Whitespace from String",
+  "topic": "remove-all-whitespace-from-string",
+  "tags": [
+    "string"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Strip spaces/tabs/newlines.\n\n### Approach 1: replaceAll (ES2021 - Best)",
+  "codeBlocks": [
+    {
+      "id": "d6caf28e-398b-4a9b-b511-e1ac1ee479c4",
+      "language": "javascript",
+      "code": "// Cleanest, fastest\nfunction removeWhitespace(str) {\n  return str.replaceAll(/\\\\s/g, '');\n}\n\n// Or single spaces/tabs/newlines specifically\nfunction removeWhitespaceSimple(str) {\n  return str.replaceAll(' ', '').replaceAll('\\\\t', '').replaceAll('\\\\n', '');\n}",
+      "caption": "Approach 1 replaceAll (ES2021 - Best)"
+    },
+    {
+      "id": "0acbbe65-8188-4e05-8153-82e33a754bc7",
+      "language": "javascript",
+      "code": "function removeWhitespaceRegex(str) {\n  return str.replace(/\\\\s+/g, '');\n}",
+      "caption": "Approach 2 Regular Expression (ES6)"
+    },
+    {
+      "id": "f1e499f9-323a-4b7f-85ef-0bfb583f91f4",
+      "language": "javascript",
+      "code": "function removeWhitespaceArray(str) {\n  return str.split('').filter(c => !/\\\\s/.test(c)).join('');\n}",
+      "caption": "Approach 3 Array Filter (ES2025)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
