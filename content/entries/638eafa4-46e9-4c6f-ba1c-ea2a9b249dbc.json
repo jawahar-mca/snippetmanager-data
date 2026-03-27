@@ -1,0 +1,33 @@
+{
+  "id": "638eafa4-46e9-4c6f-ba1c-ea2a9b249dbc",
+  "title": "Merge Two Arrays",
+  "topic": "merge-two-arrays",
+  "tags": [
+    "sort",
+    "array"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Combine arrays (no duplicates or with).\n\n### Approach 1: Spread + Set (Unique - Best)",
+  "codeBlocks": [
+    {
+      "id": "b2fc45aa-27a6-402c-8c2d-92a084237746",
+      "language": "javascript",
+      "code": "function mergeUnique(a, b) {\n  return [...new Set([...a, ...b])];\n}",
+      "caption": "Approach 1 Spread + Set (Unique - Best)"
+    },
+    {
+      "id": "bdf9dc05-e25c-445c-9e89-41831f92cc18",
+      "language": "javascript",
+      "code": "function mergeConcat(a, b) {\n  return a.concat(b).filter((item, index, self) =>\n    self.indexOf(item) === index\n  );\n}",
+      "caption": "Approach 2 Concat + filter"
+    },
+    {
+      "id": "6351a393-8718-4920-a6f4-7acb9b1964d9",
+      "language": "javascript",
+      "code": "function mergeTyped(a, b) {\n  const merged = new Int32Array(a.length + b.length);\n  merged.set(a);\n  merged.set(b, a.length);\n  return Array.from(new Set(merged));\n}",
+      "caption": "Approach 3 TypedArray (Fast)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
