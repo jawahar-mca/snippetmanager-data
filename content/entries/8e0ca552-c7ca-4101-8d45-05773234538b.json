@@ -1,9 +1,11 @@
 {
   "id": "8e0ca552-c7ca-4101-8d45-05773234538b",
   "title": "Miller-Rabin (Probabilistic) Implementation",
-  "topic": "miller-rabin-probabilistic-implementation",
+  "topic": "primeNumber",
   "tags": [
-    "linked"
+    "primeNumber",
+    "linked",
+    "miller-rabin-probabilistic-implementation"
   ],
   "language": "javascript",
   "explanation": "",
@@ -16,5 +18,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:31:09.866Z"
 }
