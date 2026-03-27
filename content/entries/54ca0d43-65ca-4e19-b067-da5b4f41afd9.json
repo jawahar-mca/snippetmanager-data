@@ -1,0 +1,30 @@
+{
+  "id": "54ca0d43-65ca-4e19-b067-da5b4f41afd9",
+  "title": "Count Number of Digits",
+  "topic": "count-number-of-digits",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "**Purpose**: 12345 → 5 digits.\n\n### Approach 1: Math.log10 (Best)",
+  "codeBlocks": [
+    {
+      "id": "58ca6f10-b129-4f8f-b550-9149f4ae904f",
+      "language": "javascript",
+      "code": "function digitCount(num) {\n  return Math.floor(Math.log10(Math.abs(num))) + 1 || 1;\n}",
+      "caption": "Approach 1 Math.log10 (Best)"
+    },
+    {
+      "id": "ab9a1af7-4c8a-4f16-9369-a3c3515522f5",
+      "language": "javascript",
+      "code": "function digitCountStr(num) {\n  return String(Math.abs(num)).length;\n}",
+      "caption": "Approach 2 String Length"
+    },
+    {
+      "id": "c34a684e-32be-4de0-8a02-7eb671ca02d9",
+      "language": "javascript",
+      "code": "function digitCountLoop(num) {\n  let count = 0, n = Math.abs(num);\n  do { count++; n = Math.floor(n / 10); } while (n > 0);\n  return count;\n}",
+      "caption": "Approach 3 Loop (Handles 0)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
