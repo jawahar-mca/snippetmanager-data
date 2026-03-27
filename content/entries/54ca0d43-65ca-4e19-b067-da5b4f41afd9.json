@@ -1,7 +1,7 @@
 {
   "id": "54ca0d43-65ca-4e19-b067-da5b4f41afd9",
   "title": "Count Number of Digits",
-  "topic": "count-number-of-digits",
+  "topic": "Number",
   "tags": [],
   "language": "javascript",
   "explanation": "**Purpose**: 12345 → 5 digits.\n\n### Approach 1: Math.log10 (Best)",
@@ -26,5 +26,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:29:35.837Z"
 }
