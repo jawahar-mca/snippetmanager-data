@@ -1,7 +1,7 @@
 {
   "id": "57c40c9d-d6ef-4a31-9cbe-bb6c7fd6cc56",
   "title": "Sort Array",
-  "topic": "sort-array",
+  "topic": "array",
   "tags": [
     "sort",
     "array"
@@ -29,5 +29,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:30:11.571Z"
 }
