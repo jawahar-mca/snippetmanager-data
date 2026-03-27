@@ -1,0 +1,32 @@
+{
+  "id": "8755a488-9a8b-4af4-ba70-c88f93eda014",
+  "title": "Check Leap Year",
+  "topic": "check-leap-year",
+  "tags": [
+    "array"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Determine if year is leap (366 days).\n\n### Approach 1: Temporal API (ES2025 - Best)",
+  "codeBlocks": [
+    {
+      "id": "d6500c94-b134-4624-9f93-bd962337a8ad",
+      "language": "javascript",
+      "code": "// Native, timezone-safe\nfunction isLeapYearTemporal(year) {\n  const date = Temporal.PlainDate.from({ year, month: 2, day: 29 });\n  return date.year === year; // Throws if invalid\n}\n\n// Usage: isLeapYearTemporal(2024) // true",
+      "caption": "Approach 1 Temporal API (ES2025 - Best)"
+    },
+    {
+      "id": "c4b6f654-286e-475c-b403-f6347c29557e",
+      "language": "javascript",
+      "code": "function isLeapYearMath(year) {\n  return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);\n}",
+      "caption": "Approach 2 Math Logic (ES6)"
+    },
+    {
+      "id": "38339b24-7369-4c39-b9dc-bdda477fa555",
+      "language": "javascript",
+      "code": "function isLeapYearDate(year) {\n  return new Date(year, 1, 29).getDate() === 29;\n}",
+      "caption": "Approach 3 Date Constructor"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
