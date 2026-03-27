@@ -1,0 +1,30 @@
+{
+  "id": "a499291b-5df0-4871-a721-bc9aa93331b3",
+  "title": "Count Vowels and Consonants",
+  "topic": "count-vowels-and-consonants",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "**Purpose**: aeiouAEIOU vs others.\n\n### Approach 1: Set Lookup (Best)",
+  "codeBlocks": [
+    {
+      "id": "2e6941e0-4b22-4295-a8aa-478a70c27fc5",
+      "language": "javascript",
+      "code": "function countVowelsConsonants(str) {\n  const vowels = new Set('aeiouAEIOU');\n  let vowelsCount = 0;\n  for (const char of str) {\n    if (vowels.has(char)) vowelsCount++;\n  }\n  return {\n    vowels: vowelsCount,\n    consonants: str.length - vowelsCount\n  };\n}",
+      "caption": "Approach 1 Set Lookup (Best)"
+    },
+    {
+      "id": "cec682c4-0c41-46df-b1a5-b7a455e4b93b",
+      "language": "javascript",
+      "code": "function countRegex(str) {\n  const vowels = (str.match(/[aeiou]/gi) || []).length;\n  return {\n    vowels,\n    consonants: str.length - vowels\n  };\n}",
+      "caption": "Approach 2 Regex"
+    },
+    {
+      "id": "aacde1c3-b258-434b-9b0f-86e7330131ae",
+      "language": "javascript",
+      "code": "function countTyped(str) {\n  const vowelCodes = new Set([97,101,105,111,117,65,69,73,79,85]);\n  let count = 0;\n  for (const char of str) {\n    if (vowelCodes.has(char.charCodeAt(0))) count++;\n  }\n  return { vowels: count, consonants: str.length - count };\n}",
+      "caption": "Approach 3 TypedArray"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
