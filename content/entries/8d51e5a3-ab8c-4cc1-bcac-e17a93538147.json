@@ -4,7 +4,8 @@
   "topic": "Reverse of counter with timer",
   "tags": [
     "reactjs",
-    "counter in reverse"
+    "counter in reverse",
+    "reverse"
   ],
   "language": "react",
   "explanation": "",
@@ -29,5 +30,5 @@
     }
   ],
   "createdAt": "2026-03-10T03:30:26.192Z",
-  "updatedAt": "2026-03-10T03:32:26.563Z"
+  "updatedAt": "2026-03-27T05:32:45.295Z"
 }
