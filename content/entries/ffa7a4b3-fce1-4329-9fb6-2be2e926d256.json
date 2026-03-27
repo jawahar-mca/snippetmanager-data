@@ -1,7 +1,7 @@
 {
   "id": "ffa7a4b3-fce1-4329-9fb6-2be2e926d256",
   "title": "Reverse a Number",
-  "topic": "reverse-a-number",
+  "topic": "reverse",
   "tags": [],
   "language": "javascript",
   "explanation": "**Purpose**: 12345 → 54321.\n\n### Approach 1: Math Loop (Best)",
@@ -26,5 +26,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:32:26.861Z"
 }
