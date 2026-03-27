@@ -1,7 +1,7 @@
 {
   "id": "2ae2289f-bfd1-4ead-87f4-59158333395f",
   "title": "Prime Number Check",
-  "topic": "prime-number-check",
+  "topic": "PrimeNumber",
   "tags": [],
   "language": "javascript",
   "explanation": "**Purpose**: Check if single number is prime.\n\n### Approach 1: Optimized Trial (Best)",
@@ -26,5 +26,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:28:34.058Z"
 }
