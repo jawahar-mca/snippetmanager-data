@@ -1,0 +1,32 @@
+{
+  "id": "a8d4dd9d-a4c7-4777-9249-890377da526b",
+  "title": "Find 2nd Largest Element",
+  "topic": "find-2nd-largest-element",
+  "tags": [
+    "array"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Second maximum value.\n\n### Approach 1: Two Variables (Best, O(n))",
+  "codeBlocks": [
+    {
+      "id": "c8252f43-d69f-4d0f-911f-d81952a0cf42",
+      "language": "javascript",
+      "code": "function secondLargest(arr) {\n  let first = -Infinity, second = -Infinity;\n  for (const num of arr) {\n    if (num > first) {\n      second = first;\n      first = num;\n    } else if (num > second && num < first) {\n      second = num;\n    }\n  }\n  return second;\n}",
+      "caption": "Approach 1 Two Variables (Best, O(n))"
+    },
+    {
+      "id": "94feb283-a87f-4762-a8ae-f7b61733f803",
+      "language": "javascript",
+      "code": "function secondLargestSort(arr) {\n  const sorted = [...new Set(arr)].sort((a, b) => b - a);\n  return sorted[1] ?? null;\n}",
+      "caption": "Approach 2 Sort (Simple)"
+    },
+    {
+      "id": "de800f48-fd3f-4a2d-addf-afac872efb5a",
+      "language": "javascript",
+      "code": "function secondLargestTyped(arr) {\n  const typed = new Float64Array(arr);\n  let first = -Infinity, second = -Infinity;\n  for (let i = 0; i < typed.length; i++) {\n    const num = typed[i];\n    if (num > first) { second = first; first = num; }\n    else if (num > second && num !== first) second = num;\n  }\n  return second;\n}",
+      "caption": "Approach 3 TypedArray (Fast)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
