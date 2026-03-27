@@ -1,0 +1,33 @@
+{
+  "id": "bc1352a9-6b2b-4509-895e-aca54188e672",
+  "title": "Find Non-Repeated Character",
+  "topic": "find-non-repeated-character",
+  "tags": [
+    "array",
+    "string"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: First unique char.\n\n### Approach 1: Map + Array (Best)",
+  "codeBlocks": [
+    {
+      "id": "2a2d3d74-1ad3-4005-a232-6a55463e9a1c",
+      "language": "javascript",
+      "code": "function firstNonRepeated(str) {\n  const freq = new Map();\n  for (const char of str) {\n    freq.set(char, (freq.get(char) || 0) + 1);\n  }\n  for (const char of str) {\n    if (freq.get(char) === 1) return char;\n  }\n  return null;\n}",
+      "caption": "Approach 1 Map + Array (Best)"
+    },
+    {
+      "id": "3a987478-1e5e-48c3-ae89-f2c013072d84",
+      "language": "javascript",
+      "code": "function firstNonRepeatedArray(str) {\n  const counts = new Uint8Array(128);\n  for (const char of str) counts[char.charCodeAt(0)]++;\n  for (const char of str) {\n    if (counts[char.charCodeAt(0)] === 1) return char;\n  }\n  return null;\n}",
+      "caption": "Approach 2 Array Count (ASCII Optimized)"
+    },
+    {
+      "id": "7b12e58b-baa2-4d8e-ad8b-d204700e81a7",
+      "language": "javascript",
+      "code": "function firstNonRepeatedSet(str) {\n  const chars = [...new Set(str)];\n  return chars.find(char => str.indexOf(char) === str.lastIndexOf(char)) || null;\n}",
+      "caption": "Approach 3 Set/Filter (Memory Heavy)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
