@@ -1,0 +1,33 @@
+{
+  "id": "73809c8f-2e86-43ae-9a76-40d92bec7549",
+  "title": "Sum of Digits of a Number",
+  "topic": "sum-of-digits-of-a-number",
+  "tags": [
+    "array",
+    "string"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: 123 → 1+2+3 = 6.\n\n### Approach 1: String Conversion (Best)",
+  "codeBlocks": [
+    {
+      "id": "1c6d4ddb-49bd-4e90-81a9-cbdc8f0666ff",
+      "language": "javascript",
+      "code": "// Cleanest, handles BigInt\nfunction sumDigits(num) {\n  return String(Math.abs(num)).split('').reduce((sum, digit) => sum + +digit, 0);\n}",
+      "caption": "Approach 1 String Conversion (Best)"
+    },
+    {
+      "id": "3f58d885-41dd-4023-9cb3-af7b924d15d8",
+      "language": "javascript",
+      "code": "function sumDigitsMath(num) {\n  let sum = 0, n = Math.abs(num);\n  while (n > 0) {\n    sum += n % 10;\n    n = Math.floor(n / 10);\n  }\n  return sum;\n}",
+      "caption": "Approach 2 Math Loop (Fastest)"
+    },
+    {
+      "id": "5a235edb-225e-4a66-8318-947f56700ded",
+      "language": "javascript",
+      "code": "function sumDigitsTyped(num) {\n  const digits = new Uint8Array(String(Math.abs(num)));\n  return Array.from(digits).reduce((sum, d) => sum + d, 0);\n}",
+      "caption": "Approach 3 TypedArray (ES2025)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
