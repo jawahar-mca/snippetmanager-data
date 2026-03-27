@@ -1,0 +1,32 @@
+{
+  "id": "90b908b7-c752-482b-93fe-3cc80e6e3387",
+  "title": "Find Largest Element in Array",
+  "topic": "find-largest-element-in-array",
+  "tags": [
+    "array"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Maximum value.\n\n### Approach 1: reduce (Best)",
+  "codeBlocks": [
+    {
+      "id": "9c633633-18f5-445c-879c-5f3afb42efff",
+      "language": "javascript",
+      "code": "function largest(arr) {\n  return arr.reduce((max, curr) => curr > max ? curr : max, -Infinity);\n}",
+      "caption": "Approach 1 reduce (Best)"
+    },
+    {
+      "id": "8f332412-d1ba-48f1-9044-d9274b876e33",
+      "language": "javascript",
+      "code": "function largestSpread(arr) {\n  return Math.max(...arr);\n}",
+      "caption": "Approach 2 Math.max Spread"
+    },
+    {
+      "id": "b33ffe7c-7530-42ea-bead-f6a68e76773e",
+      "language": "javascript",
+      "code": "function largestTyped(arr) {\n  const typed = new Float64Array(arr);\n  let max = -Infinity;\n  for (let i = 0; i < typed.length; i++) {\n    if (typed[i] > max) max = typed[i];\n  }\n  return max;\n}",
+      "caption": "Approach 3 TypedArray (Fastest)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
