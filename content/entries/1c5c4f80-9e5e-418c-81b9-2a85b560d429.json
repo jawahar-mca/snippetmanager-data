@@ -1,0 +1,32 @@
+{
+  "id": "1c5c4f80-9e5e-418c-81b9-2a85b560d429",
+  "title": "Check if String is Empty",
+  "topic": "check-if-string-is-empty",
+  "tags": [
+    "string"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: \"\", null, undefined check.\n\n### Approach 1: Nullish + length (ES2020 - Best)",
+  "codeBlocks": [
+    {
+      "id": "0b78d6cc-e036-4ffd-8863-1a4eedbff440",
+      "language": "javascript",
+      "code": "function isEmpty(str) {\n  return str ?? '' === '' || str.length === 0;\n}",
+      "caption": "Approach 1 Nullish + length (ES2020 - Best)"
+    },
+    {
+      "id": "5b01072e-6bab-48db-b719-561b92cb39bf",
+      "language": "javascript",
+      "code": "function isEmptyTrim(str) {\n  return !str?.trim();\n}",
+      "caption": "Approach 2 Trim + length"
+    },
+    {
+      "id": "36dfdc63-6e01-4b49-9b9b-940934b91937",
+      "language": "javascript",
+      "code": "function isEmptyBool(str) {\n  return !str;\n}",
+      "caption": "Approach 3 Boolean coercion"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
