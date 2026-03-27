@@ -1,0 +1,26 @@
+{
+  "id": "c6b8d1f0-7762-425a-93eb-5dbd6c47f0c4",
+  "title": "Reverse a String",
+  "topic": "reverse-a-string",
+  "tags": [
+    "string"
+  ],
+  "language": "javascript",
+  "explanation": "### Best: Spread + reverse (simple, Unicode-safe enough for most cases)",
+  "codeBlocks": [
+    {
+      "id": "cf290738-7182-4371-ba0a-d3acff2a2e06",
+      "language": "javascript",
+      "code": "function reverseString(str) {\n  return [...str].reverse().join('');\n}",
+      "caption": "Best Spread + reverse (simple, Unicode-safe enough for most cases)"
+    },
+    {
+      "id": "85c3abb3-e6b9-4f18-a06a-c5d496c1e925",
+      "language": "javascript",
+      "code": "function reverseStringLoop(str) {\n  let res = '';\n  for (let i = str.length - 1; i >= 0; i--) {\n    res += str[i];\n  }\n  return res;\n}",
+      "caption": "Manual loop (fast, avoids intermediate array for very large strings)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
