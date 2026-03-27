@@ -1,0 +1,30 @@
+{
+  "id": "2ae2289f-bfd1-4ead-87f4-59158333395f",
+  "title": "Prime Number Check",
+  "topic": "prime-number-check",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "**Purpose**: Check if single number is prime.\n\n### Approach 1: Optimized Trial (Best)",
+  "codeBlocks": [
+    {
+      "id": "f99144d7-2dc6-49ad-af8f-e73e1b5a82e4",
+      "language": "javascript",
+      "code": "function isPrime(n) {\n  if (n <= 1) return false;\n  if (n <= 3) return true;\n  if (n % 2 === 0 || n % 3 === 0) return false;\n  for (let i = 5; i * i <= n; i += 6) {\n    if (n % i === 0 || n % (i + 2) === 0) return false;\n  }\n  return true;\n}",
+      "caption": "Approach 1 Optimized Trial (Best)"
+    },
+    {
+      "id": "345f91ea-4030-4818-9a1b-d9822054b7e2",
+      "language": "javascript",
+      "code": "function isPrimeBasic(n) {\n  if (n <= 1) return false;\n  for (let i = 2; i * i <= n; i++) {\n    if (n % i === 0) return false;\n  }\n  return true;\n}",
+      "caption": "Approach 2 Basic Loop"
+    },
+    {
+      "id": "e9c24d04-ce2d-4612-b19d-5b3b76405e24",
+      "language": "javascript",
+      "code": "function isPrimeProbabilistic(n) {\n  // Witness loop for probable primes (very fast)\n}",
+      "caption": "Approach 3 Miller-Rabin (Probabilistic)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.226Z",
+  "updatedAt": "2026-03-27T05:16:32.226Z"
+}
