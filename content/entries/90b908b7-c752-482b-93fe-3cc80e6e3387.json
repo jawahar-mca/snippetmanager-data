@@ -1,7 +1,7 @@
 {
   "id": "90b908b7-c752-482b-93fe-3cc80e6e3387",
   "title": "Find Largest Element in Array",
-  "topic": "find-largest-element-in-array",
+  "topic": "array",
   "tags": [
     "array"
   ],
@@ -28,5 +28,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:31:40.480Z"
 }
