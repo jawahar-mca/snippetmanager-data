@@ -1,0 +1,30 @@
+{
+  "id": "7bdbfada-b8e0-409d-bcc4-62cfec60f668",
+  "title": "Simple Calculator",
+  "topic": "simple-calculator",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "**Purpose**: Basic arithmetic operations.\n\n### Approach 1: Function Map (Best)",
+  "codeBlocks": [
+    {
+      "id": "df3cf8d2-9f8d-47e4-b1b3-6bb2fd342104",
+      "language": "javascript",
+      "code": "const calc = (a, b, op) => {\n  const ops = {\n    '+': (x, y) => x + y,\n    '-': (x, y) => x - y,\n    '*': (x, y) => x * y,\n    '/': (x, y) => y !== 0 ? x / y : NaN,\n    '%': (x, y) => y !== 0 ? x % y : NaN,\n    '^': (x, y) => x ** y\n  };\n  return ops[op]?.(a, b) ?? NaN;\n};\n\n// Usage: calc(10, 3, '+') // 13",
+      "caption": "Approach 1 Function Map (Best)"
+    },
+    {
+      "id": "62062c6d-92b6-4fb5-a766-81bd024a5aac",
+      "language": "javascript",
+      "code": "// NEVER use in production\nfunction calcEval(a, b, op) {\n  return eval(`${a} ${op} ${b}`);\n}",
+      "caption": "Approach 2 eval (Dangerous)"
+    },
+    {
+      "id": "cc6dafb2-59d9-4834-961c-a8394ade6978",
+      "language": "javascript",
+      "code": "function calcBigInt(a, b, op) {\n  const A = BigInt(a), B = BigInt(b);\n  switch (op) {\n    case '+': return Number(A + B);\n    case '-': return Number(A - B);\n    case '*': return Number(A * B);\n    case '/': return Number(A / B);\n    default: return NaN;\n  }\n}",
+      "caption": "Approach 3 Switch + BigInt (ES2020)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
