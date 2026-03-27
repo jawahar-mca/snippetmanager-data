@@ -1,0 +1,33 @@
+{
+  "id": "0539f3fa-0ac1-4dfe-b281-7b7166de7124",
+  "title": "Maximum Occurring Character",
+  "topic": "maximum-occurring-character",
+  "tags": [
+    "array",
+    "string"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Find char with highest frequency.\n\n### Approach 1: Map (ES6, O(n))",
+  "codeBlocks": [
+    {
+      "id": "db7dfbd1-92c1-4852-934b-2eb3445a7bbb",
+      "language": "javascript",
+      "code": "// Cleanest, readable\nfunction maxCharMap(str) {\n  const freq = new Map();\n  for (const char of str) freq.set(char, (freq.get(char) || 0) + 1);\n  return Array.from(freq.entries()).reduce((max, [char, count]) =>\n    count > max[1] ? [char, count] : max\n  );\n}",
+      "caption": "Approach 1 Map (ES6, O(n))"
+    },
+    {
+      "id": "9f031c66-fc12-42b5-9742-26128da51807",
+      "language": "javascript",
+      "code": "// Fixed alphabet optimization\nfunction maxCharArray(str) {\n  const counts = new Uint32Array(128); // ASCII\n  for (const char of str) counts[char.charCodeAt(0)]++;\n  let maxChar = 0, maxCount = 0;\n  for (let i = 0; i < 128; i++) {\n    if (counts[i] > maxCount) {\n      maxCount = counts[i];\n      maxChar = String.fromCharCode(i);\n    }\n  }\n  return maxChar;\n}",
+      "caption": "Approach 2 Array/Object (ES2025 Atomics)"
+    },
+    {
+      "id": "e928dc24-c2b3-4fee-9824-efa74cf86274",
+      "language": "javascript",
+      "code": "// One-liner (if reduceOneOf lands)\nconst maxCharReduce = str =>\n  [...str].reduce((acc, char) => ({...acc, [char]: (acc[char] || 0) + 1}), {})\n    |> Object.entries() |> maxBy(([_, count]) => count)[0];",
+      "caption": "Approach 3 reduceOneOf (ES2025 Proposal)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.224Z",
+  "updatedAt": "2026-03-27T05:16:32.224Z"
+}
