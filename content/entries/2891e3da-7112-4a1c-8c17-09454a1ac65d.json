@@ -1,0 +1,30 @@
+{
+  "id": "2891e3da-7112-4a1c-8c17-09454a1ac65d",
+  "title": "Print Pascal Triangle",
+  "topic": "print-pascal-triangle",
+  "tags": [],
+  "language": "javascript",
+  "explanation": "**Purpose**: Generate/print Pascal's triangle rows.\n\n### Approach 1: Iterative (Best)",
+  "codeBlocks": [
+    {
+      "id": "319fd57e-fef8-457f-a3db-5e0277277e47",
+      "language": "javascript",
+      "code": "function pascalTriangle(rows) {\n  const triangle = [[1]];\n  for (let i = 1; i < rows; i++) {\n    const prev = triangle[i - 1];\n    const row = [1];\n    for (let j = 1; j < i; j++) {\n      row[j] = prev[j - 1] + prev[j];\n    }\n    row[i] = 1;\n    triangle.push(row);\n  }\n  return triangle;\n}",
+      "caption": "Approach 1 Iterative (Best)"
+    },
+    {
+      "id": "2b5734c5-1f66-4b4f-b571-ed4ec864fb62",
+      "language": "javascript",
+      "code": "function pascalRow(n) {\n  if (n === 0) return [1];\n  const prev = pascalRow(n - 1);\n  return [1, ...prev.slice(0, -1).map((v, i) => v + prev[i + 1]), 1];\n}",
+      "caption": "Approach 2 Recursive (Memory Heavy)"
+    },
+    {
+      "id": "c666fd2e-ad7a-4565-8e7c-eb8c7ff131fa",
+      "language": "javascript",
+      "code": "function pascalRowBinomial(n) {\n  return Array.from({ length: n + 1 }, (_, i) =>\n    factorialBigInt(n) / (factorialBigInt(i) * factorialBigInt(n - i))\n  );\n}",
+      "caption": "Approach 3 Math Formula (Binomial)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
