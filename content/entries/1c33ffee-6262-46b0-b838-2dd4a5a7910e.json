@@ -1,7 +1,7 @@
 {
   "id": "1c33ffee-6262-46b0-b838-2dd4a5a7910e",
   "title": "Check Palindrome (string or number)",
-  "topic": "check-palindrome-string-or-number",
+  "topic": "Palindrome",
   "tags": [
     "string"
   ],
@@ -22,5 +22,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:29:08.982Z"
 }
