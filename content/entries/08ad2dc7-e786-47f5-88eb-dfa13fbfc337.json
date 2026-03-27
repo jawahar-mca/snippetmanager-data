@@ -1,0 +1,26 @@
+{
+  "id": "08ad2dc7-e786-47f5-88eb-dfa13fbfc337",
+  "title": "Bubble Sort",
+  "topic": "bubble-sort",
+  "tags": [
+    "sort"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Adjacent swaps until no swaps needed.\n\n### Approach 1: Classic with Early Exit (O(n²) worst, O(n) best)",
+  "codeBlocks": [
+    {
+      "id": "2a66585e-6def-4b86-819d-397ff4c27bbe",
+      "language": "javascript",
+      "code": "// Optimized with swapped flag\nfunction bubbleSortClassic(arr) {\n  let swapped;\n  do {\n    swapped = false;\n    for (let i = 0; i < arr.length - 1; i++) {\n      if (arr[i] > arr[i + 1]) {\n        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];\n     \n        swapped = true;\n      }\n    }\n  } while (swapped);\n  return arr;\n}",
+      "caption": "Approach 1 Classic with Early Exit (O(n²) worst, O(n) best)"
+    },
+    {
+      "id": "c6ec658f-ff0c-47bc-971b-d475ff32024b",
+      "language": "javascript",
+      "code": "// Recursive with generator for visualization\nfunction* bubbleSortRecursive(arr) {\n  const copy = [...arr];\n  if (copy.length <= 1) return copy;\n  yield* bubbleSortRecursive(copy.slice(0, -1));\n  // Bubble last element\n  for (let i = 0; i < copy.length - 1; i++) {\n    if (copy[i] > copy[i + 1]) [copy[i], copy[i + 1]] = [copy[i + 1], copy[i]];\n    yield [...copy];\n  }\n  return copy;\n}",
+      "caption": "Approach 2 ES2025 Recursive Generator"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.224Z",
+  "updatedAt": "2026-03-27T05:16:32.224Z"
+}
