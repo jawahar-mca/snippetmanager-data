@@ -1,7 +1,7 @@
 {
   "id": "14b7c7f9-0f6e-4644-9f9e-f31cc6819df6",
   "title": "Print Prime Numbers in Range",
-  "topic": "print-prime-numbers-in-range",
+  "topic": "PrimeNumber",
   "tags": [],
   "language": "typescript",
   "explanation": "**Purpose**: Primes between start-end.\n\n### Approach 1: Sieve of Eratosthenes (Best)",
@@ -20,5 +20,5 @@
     }
   ],
   "createdAt": "2026-03-27T05:16:32.226Z",
-  "updatedAt": "2026-03-27T05:16:32.226Z"
+  "updatedAt": "2026-03-27T05:28:53.869Z"
 }
