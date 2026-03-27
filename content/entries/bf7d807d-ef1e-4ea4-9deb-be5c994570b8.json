@@ -1,0 +1,32 @@
+{
+  "id": "bf7d807d-ef1e-4ea4-9deb-be5c994570b8",
+  "title": "Common Elements in Two Arrays",
+  "topic": "common-elements-in-two-arrays",
+  "tags": [
+    "array"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: Intersection.\n\n### Approach 1: Set (ES6 - Best)",
+  "codeBlocks": [
+    {
+      "id": "1204f840-3cae-46e6-a529-bbf6805b5abd",
+      "language": "javascript",
+      "code": "function commonSet(a, b) {\n  return [...new Set(a)].filter(x => b.includes(x));\n}",
+      "caption": "Approach 1 Set (ES6 - Best)"
+    },
+    {
+      "id": "679caf55-bf43-4a30-b76b-6313ee6f6267",
+      "language": "javascript",
+      "code": "function commonMap(a, b) {\n  const countA = new Map(a.map(x => [x, 0]).flatMap(([k]) => [k, (countA.get(k) || 0) + 1]));\n  return b.filter(x => countA.get(x) > 0);\n}",
+      "caption": "Approach 2 Map Count (Handles Duplicates)"
+    },
+    {
+      "id": "d92b7a2b-bc8f-48a7-bdd3-75591ad64abf",
+      "language": "javascript",
+      "code": "function commonTyped(a, b) {\n  const sortedA = new Int32Array(a).sort();\n  const sortedB = new Int32Array(b).sort();\n  const result = [];\n  let i = 0, j = 0;\n  while (i < sortedA.length && j < sortedB.length) {\n    if (sortedA[i] === sortedB[j]) {\n      result.push(sortedA[i++]);\n      j++;\n    } else if (sortedA[i] < sortedB[j]) i++;\n    else j++;\n  }\n  return result;\n}",
+      "caption": "Approach 3 TypedArray + Sort (Fastest)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.225Z",
+  "updatedAt": "2026-03-27T05:16:32.225Z"
+}
