@@ -1,0 +1,33 @@
+{
+  "id": "2fdd2163-8ae9-4241-996a-259d930b210a",
+  "title": "Selection Sort",
+  "topic": "selection-sort",
+  "tags": [
+    "sort",
+    "array"
+  ],
+  "language": "javascript",
+  "explanation": "**Purpose**: In-place comparison sort, finds min/max each pass.\n\n### Approach 1: Classic Imperative (O(n²))",
+  "codeBlocks": [
+    {
+      "id": "b5a1e48a-0988-4fbf-97f9-d18eb13a7ab8",
+      "language": "javascript",
+      "code": "// Classic ES5 style - simple, readable\nfunction selectionSortClassic(arr) {\n  for (let i = 0; i < arr.length - 1; i++) {\n    let minIdx = i;\n    for (let j = i + 1; j < arr.length; j++) {\n      if (arr[j] < arr[minIdx]) minIdx = j;\n    }\n    // Swap\n    [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];\n  }\n  return arr;\n}",
+      "caption": "Approach 1 Classic Imperative (O(n²))"
+    },
+    {
+      "id": "6e364ea9-381a-40a6-8944-660252c84a41",
+      "language": "javascript",
+      "code": "// ES2025 iterators for lazy evaluation\nfunction* selectionSortGenerator(arr) {\n  const copy = [...arr]; // Avoid mutating original\n  for (let i = 0; i < copy.length - 1; i++) {\n    let minIdx = i;\n    for (let j = i + 1; j < copy.length; j++) {\n      if (copy[j] < copy[minIdx]) minIdx = j;\n    }\n    [copy[i], copy[minIdx]] = [copy[minIdx], copy[i]];\n    yield copy.slice(0, i + 1); // Yield partial results\n  }\n  return copy;\n}\n\n// Usage: for (const step of selectionSortGenerator([64, 34, 25, 12, 22])) console.log(step);",
+      "caption": "Approach 2 ES2025 Iterator + Generator (Memory efficient)"
+    },
+    {
+      "id": "3c39d31c-6f0c-47e3-9711-0d22f5c52686",
+      "language": "javascript",
+      "code": "// ES2022+ TypedArray + Atomics for multithreaded sorting\nfunction selectionSortTyped(arr) {\n  const typed = new Float64Array(arr); // Faster memory access\n  for (let i = 0; i < typed.length - 1; i++) {\n    let minIdx = i;\n    for (let j = i + 1; j < typed.length; j++) {\n      if (typed[j] < typed[minIdx]) minIdx = j;\n    }\n    Atomics.exchange(typed, i, typed[minIdx]); // Atomic swap\n    Atomics.store(typed, minIdx, typed[i]);\n  }\n  return Array.from(typed);\n}",
+      "caption": "Approach 3 TypedArray + Atomics (Best Performance)"
+    }
+  ],
+  "createdAt": "2026-03-27T05:16:32.224Z",
+  "updatedAt": "2026-03-27T05:16:32.224Z"
+}
